@@ -1,10 +1,44 @@
-h1{
-    color: red;
+* {
+    font-family: monospace;
 }
-.completed{
+
+html {
+    margin: 1em;
+}
+
+
+span {
+    font-size: larger;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: unset;
+    padding-bottom: 1em;
+}
+
+.completed {
     text-decoration: line-through;
     color: gray;
 }
-.not{
-    text-decoration: underline;
+
+.not {
+    color: black;
+}
+
+.fa-trash {
+    color: red;
+    font-size: smaller;
+}
+
+.rating__star {
+    cursor: pointer;
+    color: goldenrod;
+}
+
+.submit {
+    background-color: green;
+    color: white;
+    border: unset;
+    padding: .5em 2em;
 }

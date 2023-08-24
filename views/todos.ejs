@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    <h1>Todos</h1>
+    <!-- <h2>Things left to do: <%= left %>
+    </h2> -->
+
+    <h1>Daily To-dos:</h1>
     <ul>
-    <% todos.forEach( el => { %>
+        <% todos.forEach( el=> { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> <i class="fa fa-trash-o"></i> </span>
+                <input type="checkbox" style="pointer-events: none" <%=el.completed===true ? 'checked' : '' %>>
+                <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                <span class='del fa fa-trash'></span>
             </li>
-    <% }) %>    
+            <% }) %>
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <h2>Add a new to-do:</h2>
+        <input type="text" placeholder="Type in a new todo" name='todoItem'>
+        <div class="rating">
+            <span>How difficult is your to-do?</span>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+        </div>
+        <input type="submit" class="btn submit" value="Create new to-do!">
     </form>
 
     <a href="/logout">Logout</a>
